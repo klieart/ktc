@@ -1,19 +1,3 @@
-FROM node:6.10.2
-LABEL maintainer "klieart"
-
-# Prepare app directory
-RUN mkdir -p /usr/src/app
+FROM ktc_base
 ADD . /usr/src/app
-
-# Install dependencies
-WORKDIR /usr/src/app
-RUN npm install
-
-# Build the app
 RUN npm build
-
-# Expose the app port
-EXPOSE 8000
-
-# Start the app
-CMD npm start

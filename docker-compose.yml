@@ -1,12 +1,16 @@
-web:
-  build: .
-  links:
-    - db
-  environment:
-    - DB_HOST=db
-  ports:
-    - '8000:8000'
-  command: npm start
-db:
-  image: mongo
+version: "3"
 
+services:
+
+  db:
+    image: mongo
+
+  web:
+    build: .
+    links:
+      - db
+    environment:
+      - DB_HOST=db
+    ports:
+      - '8000:8000'
+    command: npm start
